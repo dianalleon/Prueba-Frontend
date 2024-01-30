@@ -11,7 +11,7 @@ import VectorLayer from 'ol/layer/Vector';
 import Style from 'ol/style/Style';
 import Icon from 'ol/style/Icon';
 import { BackendService } from '../../servicios/backend.service';
-import { Location, Servicio } from '../../interfaces/servicio';
+import { Location} from '../../interfaces/servicio';
 import { fromLonLat } from 'ol/proj';
 import Select from 'ol/interaction/Select';
 import { Point } from 'ol/geom';
