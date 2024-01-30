@@ -11,7 +11,6 @@ import { Servicio } from '../../interfaces/servicio';
 export class DetailsComponent implements OnInit {
 
   servicio!:Servicio
-  info: boolean = false;
 
   constructor(public dialogRef: MatDialogRef<DetailsComponent>,
               private backendService: BackendService,
@@ -30,7 +29,6 @@ export class DetailsComponent implements OnInit {
     this.backendService.getObjetoPorId(this.data.token).subscribe({
       next: (data)=> {
         this.servicio = data
-        this.info = true;
       },
       error: (error) => {
         console.error(error);
