@@ -10,9 +10,8 @@ import { Servicio } from '../../interfaces/servicio';
 })
 export class DetailsComponent implements OnInit {
 
-  address!: string;
-  description!: string;
-  img_icon!: string;
+  servicio!:Servicio
+  info: boolean = false;
 
   constructor(public dialogRef: MatDialogRef<DetailsComponent>,
               private backendService: BackendService,
@@ -28,12 +27,10 @@ export class DetailsComponent implements OnInit {
   }
 
   servicioPorId(){
-    console.log(this.data)
     this.backendService.getObjetoPorId(this.data.token).subscribe({
       next: (data)=> {
-        this.address = data.address;
-        this.description = data.description;
-        this.img_icon = this.img_icon;
+        this.servicio = data
+        this.info = true;
       },
       error: (error) => {
         console.error(error);

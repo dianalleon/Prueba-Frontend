@@ -1,11 +1,15 @@
+<div class="spinner-container" *ngIf="!info">
+  <div class="spinner"></div>
+</div>
+
 <div mat-dialog-content class="modalC">
-  <div>
+  <div *ngIf="info">
     <div mat-dialog-content>
       <div class="card">
-        <img mat-card-avatar src="img_icon">
         <div class="card-content">
-          <h2>{{ address }}</h2>
-          <p>{{ description }}</p>
+          <h2>Dirección: {{ servicio.address }}</h2>
+          <p> Nombre: {{ servicio.service_name }}</p>
+          <p> Descriptión: {{ servicio.typology.typology_description  }}</p>
         </div>
       </div>
     </div>
@@ -14,3 +18,4 @@
     </div>
   </div>
 </div>
+

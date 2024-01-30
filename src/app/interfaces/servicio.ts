@@ -29,6 +29,13 @@ export interface Servicio {
   media_url?:                            string;
 }
 
+export interface ServicioInfo{
+  token:string;
+  address: string;
+  description: string;
+  service_icon:string;
+}
+
 export interface Location{
   token: string;
   long: number;

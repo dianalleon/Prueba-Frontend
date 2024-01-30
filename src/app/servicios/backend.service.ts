@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { Servicio, Location } from '../interfaces/servicio';
+import { Servicio, Location, ServicioInfo } from '../interfaces/servicio';
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +13,21 @@ export class BackendService {
 
   constructor(private http: HttpClient) {}
 
-  obtenerDatos(): Observable<{ address: string,
-        description: string, service_icon:string, token:string}[]> {
-    return this.http.get<Servicio[]>(this.apiUrl).pipe(
+  obtenerDatos(): Observable<ServicioInfo[]> {
+    return this.http.get<ServicioInfo[]>(this.apiUrl).pipe(
       map(response => {
-        return response.map(({ address, description, service_icon, token }: Servicio) =>
-            ({ address, description, service_icon, token }));
+        return response.map((servicio : ServicioInfo) =>
+            ({ token: servicio.token, address: servicio.address,
+              description: servicio.description, service_icon: servicio.service_icon}));
+      })
+    );
+  }
+
+  getListLocation(): Observable<Location[]> {
+    return this.http.get<Location[]>(this.apiUrl).pipe(
+      map(response => {
+        return response.map((location: Location) =>({ long:location.long ,
+          lat : location.lat, token: location.token}));
       })
     );
   }
@@ -33,12 +42,6 @@ export class BackendService {
     );
   }
 
-  getListLocation(): Observable<Location[]> {
-    return this.http.get<Location[]>(this.apiUrl).pipe(
-      map(response => {
-        return response.map((location: Location) =>({ long:location.long , lat : location.lat, token: location.token}));
-      })
-    );
-  }
+
 
 }

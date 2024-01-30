@@ -15,6 +15,8 @@ import {MatCardModule} from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 // Importa las siguientes líneas para OpenLayers
 import 'ol/ol.css';
@@ -35,7 +37,8 @@ import 'ol/ol.css';
     MatDialogModule,
     MatIconModule,
     HttpClientModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

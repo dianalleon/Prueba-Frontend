@@ -1,28 +1,27 @@
 <mat-sidenav-container class="mapa_container">
   <mat-sidenav #sidenav mode="side" class="sidenav">
-    <!-- Contenido del sidebar -->
     <mat-card>
-      <mat-card-header>
-        <mat-card-title>Servicios</mat-card-title>
-      </mat-card-header>
       <mat-card-content>
-        <!-- Contenido del menú, puedes agregar más cards aquí -->
-        <div class="mapa_container">
-          <mat-card *ngFor="let d of data" (click)="openDialog(d)" class="card-con-scroll">
-            <mat-card-header  class="card">
-              <img mat-card-avatar [src]="d.service_icon">
-              <mat-card-title class="title">{{ d.description }}</mat-card-title>
-              <mat-card-subtitle class="description">{{ d.address }}</mat-card-subtitle>
-            </mat-card-header>
+        <div class="cardContainer" *ngFor="let d of data">
+          <mat-card (click)="openDialog(d)" class="card-con-scroll">
+            <div class="card-content">
+              <img src="https://img.icons8.com/pulsar-color/48/notice.png" alt="Icono" class="icon">
+              <div class="card-header-content">
+                <mat-card-header class="card">
+                  <mat-card-title class="title">{{ d.description }}</mat-card-title>
+                  <mat-card-subtitle class="description">{{ d.address }}</mat-card-subtitle>
+                </mat-card-header>
+              </div>
+            </div>
           </mat-card>
         </div>
-
       </mat-card-content>
     </mat-card>
   </mat-sidenav>
+  
   <mat-sidenav-content>
-    <button mat-button (click)="sidenav.toggle()">
-      <img src="https://img.icons8.com/material-rounded/24/menu--v1.png" style="width: 15px;" />
+    <button mat-button (click)="sidenav.toggle()" class="icon">
+      <img src="https://img.icons8.com/material-rounded/24/menu--v1.png"/>
     </button>
     <app-mapa></app-mapa>
   </mat-sidenav-content>
