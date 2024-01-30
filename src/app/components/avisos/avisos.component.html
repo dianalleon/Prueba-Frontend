@@ -5,20 +5,18 @@
         <div class="cardContainer" *ngFor="let d of data">
           <mat-card (click)="openDialog(d)" class="card-con-scroll">
             <div class="card-content">
-              <img src="https://img.icons8.com/pulsar-color/48/notice.png" alt="Icono" class="icon">
-              <div class="card-header-content">
-                <mat-card-header class="card">
-                  <mat-card-title class="title">{{ d.description }}</mat-card-title>
-                  <mat-card-subtitle class="description">{{ d.address }}</mat-card-subtitle>
-                </mat-card-header>
-              </div>
+              <img class="" src="https://img.icons8.com/pulsar-color/48/notice.png" alt="Icono">
+              <mat-card-header class="">
+                <mat-card-title class="title">{{ d.description }}</mat-card-title>
+                <mat-card-subtitle class="description">{{ d.address }}</mat-card-subtitle>
+              </mat-card-header>
             </div>
           </mat-card>
         </div>
       </mat-card-content>
     </mat-card>
   </mat-sidenav>
-  
+
   <mat-sidenav-content>
     <button mat-button (click)="sidenav.toggle()" class="icon">
       <img src="https://img.icons8.com/material-rounded/24/menu--v1.png"/>
